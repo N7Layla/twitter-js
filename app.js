@@ -1,33 +1,43 @@
 const express = require( 'express' );
-const app = express(); // creates an instance of an express application
+const nunjucks = require('nunjucks');
+const app = express();
+const routes = require('./routes');
+app.use('/', routes); 
+
+app.engine('html', nunjucks.render);
+app.set('view engine', 'html');
+nunjucks.configure('views', { noCache: true });
+nunjucks.render('index.html', locals, function (err, output) {
+    console.log(output);
+});
+
+const people = [{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}];
 
 
 app.use("/", function(request,response,next) {
-	response.send("another message!");
 	next();
 });
 
-app.get("/", function(request,response) {
-	response.send("welcome!");
-});
+app.use(express.static('public'));
 
-app.get("/is-anybody-in-there", function(request,response) {
-	response.send("somebody is in here");
-});
 
-app.post("/modernism", function(request,response) {
-	response.send("hello modernism")
-});
 
-app.get("/news", function(request,response) {
-	response.send("news!");
-});
+
+var locals = {
+    title: 'An Example',
+    people: [
+        { name: 'Gandalf'},
+        { name: 'Frodo' },
+        { name: 'Hermione'}
+    ]
+};
+
+
 
 
 
 
 app.listen(3000)
-	//console.log("server listening");
 
 
 

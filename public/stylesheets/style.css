@@ -2,6 +2,7 @@ html,
 body {
   height: 100%;
   /* The html and body elements cannot have any padding or margin. */
+  font-family: Helvetica Neue, Times;
 }
 
 /* Wrapper for page content to push down footer */
@@ -37,8 +38,19 @@ body {
   padding-right: 15px;
 }
 
+#twitter-content {
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+}
+
 code {
   font-size: 80%;
+}
+
+h1 {
+  color: #1da1f2;
+  text-shadow: 1px 2px 1px #132034;
 }
 
 .tweetbox {
@@ -51,9 +63,42 @@ code {
   width: 48px;
   content:url("http://lorempixel.com/48/48");
 }
+
+#tweet-img {
+  display: inline-flex;
+  float: left;
+  height: 60px;
+  width: 60px;
+}
+
+#twit {
+  padding: 2px;
+  overflow: hidden;
+}
+
+#names {
+  padding: 0px;
+}
+
+#tweets {
+  padding: 0px;
+}
+
 .content {
   margin-left: 60px;
 }
 .content .by {
   font-weight: bold;
+}
+
+.tweetName {
+  font-weight: bold;
+  font-size: 20px;
+  color: #1da1f2;
+  text-shadow: 1px 1px 1px #ffffff;
+}
+
+.tweetContent {
+  font-size: 12px;
+  color: #132034;
 }

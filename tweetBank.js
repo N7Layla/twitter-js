@@ -36,7 +36,7 @@ for (let i = 0; i < 10; i++) {
   module.exports.add( getFakeName(), getFakeTweet() );
 }
 
-// module.exports.add("Layla", "Grace Hopper is cool");
+module.exports.add("Layla Hedges", "Grace Hopper is cool");
 // module.exports.add("Annelise", "I love tweetBank");
 // console.log(data);
 // var found = module.exports.find('Grace Hopper');

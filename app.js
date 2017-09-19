@@ -3,13 +3,16 @@ const nunjucks = require('nunjucks');
 const bodyParser = require('body-parser');
 const app = express();
 const routes = require('./routes');
-app.use('/', routes); 
+
+
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
 app.use(bodyParser.json());
+
+app.use('/', routes); 
 
 
 app.engine('html', nunjucks.render);
@@ -22,7 +25,7 @@ nunjucks.render('index.html', locals, function (err, output) {
 const people = [{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}];
 
 
-app.use("/", function(request,response,next) {
+app.use("/", function(req,res,next) {
 	next();
 });
 

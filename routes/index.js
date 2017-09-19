@@ -15,10 +15,10 @@ router.get('/', function (req, res) {
   res.render( 'index', { showForm: true, tweets: tweets } );
 });
 
-router.get('/users/:name', function(req, res) {
-  var name = req.params.name;
-  var tweets = tweetBank.find( {name: name} );
-  res.render( 'index', { showForm: true, tweets: tweets } );
+router.get('/users/:username', function(req, res) {
+  var username = req.params.username;
+  var tweets = tweetBank.find( {username: username} );
+  res.render( 'index', { showForm: true, tweets: tweets, username: req.params.username } );
 });
 
 // router.get('/users/:username', function(req, res) {
@@ -29,7 +29,6 @@ router.get('/users/:name', function(req, res) {
 
 router.post('/tweets', function(req, res) {
   var name = req.body.name;
-  console.log(name)
   var text = req.body.text;
   tweetBank.add(name, text);
   res.redirect('/');

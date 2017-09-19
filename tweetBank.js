@@ -1,9 +1,11 @@
 const _ = require('lodash');
 
 var data = [];
+var counterID = 0;
 
 function add (name, content) {
-  data.push({ name: name, content: content });
+  data.push({ name: name, content: content, counterID: counterID});
+  counterID++;
 }
 
 function list () {
@@ -33,11 +35,11 @@ const getFakeTweet = function() {
 };
 
 for (let i = 0; i < 10; i++) {
-  module.exports.add( getFakeName(), getFakeTweet() );
+  module.exports.add( getFakeName(), getFakeTweet());
 }
 
-module.exports.add("Layla Hedges", "Grace Hopper is cool");
+//module.exports.add("Layla Hedges", "Grace Hopper is cool");
 // module.exports.add("Annelise", "I love tweetBank");
-// console.log(data);
+console.log(data);
 // var found = module.exports.find('Grace Hopper');
 // console.log(found)
